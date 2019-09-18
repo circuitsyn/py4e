@@ -29,8 +29,8 @@ try:
     h = float(hrs)
     rate = input("Enter Rate:")
     r = float(rate)
-    computePay(h,r)
-    print(result)
+    p = computePay(h,r)
+    print(p)
 
 #exception capture if there is an error
 except:
