@@ -7,7 +7,7 @@ overHrs = 0
 overage = 0
 
 #Function to calculate pay
-def computePay(h,r):
+def computepay(h,r):
     #Check to see if overtime needs to be calculated and then do so if needed
     if h > 40 :
         base = 40 * r
@@ -29,7 +29,7 @@ try:
     h = float(hrs)
     rate = input("Enter Rate:")
     r = float(rate)
-    p = computePay(h,r)
+    p = computepay(h,r)
     print(p)
 
 #exception capture if there is an error
