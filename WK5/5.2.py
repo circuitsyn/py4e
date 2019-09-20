@@ -4,22 +4,21 @@ largest = None
 smallest = None
 
 while True:
-    try :
-        num = input("Enter a number: ")
+    num = input("Enter a number: ")
+    if num == "done" :
+        break
     
-
-        if num == "done" :
-            break
-        else :
-            print(num)
-            if smallest is None :
-                smallest = num
-            if largest is None :
-                largest = num
-            if num > largest :
-                largest = num
-            if num < smallest :
-                smallest = num
+    try :
+        num = int(num)
+        print(num)
+        if smallest is None :
+            smallest = num
+        if largest is None :
+            largest = num
+        if num > largest :
+            largest = num
+        if num < smallest :
+            smallest = num
 
     except :
         print("Invalid Integer check your input")
