@@ -10,7 +10,7 @@ while True:
     
     try :
         num = int(num)
-        print(num)
+        #print(num)
         if smallest is None :
             smallest = num
         if largest is None :
@@ -21,7 +21,7 @@ while True:
             smallest = num
 
     except :
-        print("Invalid Integer check your input")
+        print("Invalid input")
 
-print("Minimum", smallest)
-print("Maximum", largest)
+print("Maximum is", largest)
+print("Minimum is", smallest)
