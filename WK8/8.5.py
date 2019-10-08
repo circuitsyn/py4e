@@ -10,7 +10,7 @@ count = 0
 def processor(line) :
     collection = line.split()
     finishedData = collection[1]
-    print("email:", finishedData)
+    print(finishedData)
     return finishedData
 
 fname = input("Enter file name: ")
