@@ -2,12 +2,14 @@
 
 count = 0
 usrGrp = dict()
+winnerCount = None
+winnerEmail = None
 
 #function to process line
 def processor(line) :
     collection = line.split()
     finishedData = collection[1]
-    print(finishedData)
+    #print(finishedData)
     #code line that creates key and values for our dictionary
     usrGrp[finishedData] = usrGrp.get(finishedData,0) + 1
     return finishedData
@@ -21,10 +23,12 @@ fh = open(fname)
 for line in fh:
     #skip lines not starting with desired text
     if not line.startswith("From:") : continue
-
-    
-    # count = count + 1
+    #call function to process text data
     processor(line)
-
-print(usrGrp)
-print("There were", count, "lines in the file with From as the first word")
+    for email,count in usrGrp.items():
+        if winnerCount is None or count > winnerCount:
+            winnerEmail = email
+            winnerCount = count
+#print(usrGrp)
+print(winnerEmail,winnerCount)
+#print("There were", count, "lines in the file with From as the first word")
