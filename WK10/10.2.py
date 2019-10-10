@@ -4,21 +4,34 @@
 
 # Once you have accumulated the counts for each hour, print out the counts, sorted by hour as shown below.
 
-#Starter code
-name = input("Enter file:")
-if len(name) < 1 : name = "mbox-short.txt"
-handle = open(name)
+usrGrp = dict()
 
-#desired output
-# 04 3
-# 06 1
-# 07 1
-# 09 2
-# 10 3
-# 11 6
-# 14 1
-# 15 2
-# 16 4
-# 17 2
-# 18 1
-# 19 1
+#function to process line
+def processor(line) :
+    collection = line.split()
+    starterTime = collection[5]
+    #print("starter time:",starterTime)
+    hrCap = starterTime.split(":")
+    #print("hr cap time:",hrCap)
+    finishedData = hrCap[0]
+    #code line that creates key and values for our dictionary
+    usrGrp[finishedData] = usrGrp.get(finishedData,0) + 1
+    return finishedData
+
+fname = input("Enter file name: ")
+if len(fname) < 1 : fname = "mbox-short.txt"
+fh = open(fname)
+
+#loop to go through each line of text
+for line in fh:
+    #skip lines not starting with desired text
+    if not line.startswith("From ") : continue
+    #call function to process text data
+    processor(line)
+
+#Sorts tuple data and stores it in sortedData
+sortedData = ( sorted( [ (x,y) for x,y in usrGrp.items() ] ) )
+
+#runs a loop to print sorted final data
+for x,y in sortedData :
+    print(x,y)
