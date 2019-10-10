@@ -27,8 +27,12 @@ winnerEmail = None
 #function to process line
 def processor(line) :
     collection = line.split()
-    finishedData = collection[1]
-    #print(finishedData)
+    starterTime = collection[5]
+    #print("starter time:",starterTime)
+    hrCap = starterTime.split(":")
+    #print("hr cap time:",hrCap)
+    finishedData = hrCap[0]
+    #print("finished time:",finishedData)
     #code line that creates key and values for our dictionary
     usrGrp[finishedData] = usrGrp.get(finishedData,0) + 1
     return finishedData
@@ -41,13 +45,16 @@ fh = open(fname)
 #loop to go through each line of text
 for line in fh:
     #skip lines not starting with desired text
-    if not line.startswith("From:") : continue
+    if not line.startswith("From ") : continue
     #call function to process text data
     processor(line)
-    for email,count in usrGrp.items():
-        if winnerCount is None or count > winnerCount:
-            winnerEmail = email
-            winnerCount = count
+    print("usr grp", usrGrp)
+    # for email,count in usrGrp.items():
+    #     if winnerCount is None or count > winnerCount:
+    #         winnerEmail = email
+    #         winnerCount = count
 #print(usrGrp)
+for (x,y) in usrGrp :
+    print(x,y)
 print(winnerEmail,winnerCount)
 #print("There were", count, "lines in the file with From as the first word")
