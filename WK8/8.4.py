@@ -7,15 +7,20 @@
 fname = input("Enter file name: ")
 fh = open(fname)
 splitTxt = list()
+finalLst = list()
 #separate words and store in splitTxt
 splitTxt = fh.read().split()
-print("splitTxt:", splitTxt)
+#print("splitTxt:", splitTxt)
 #Sort text
 sortedTxt = sorted(splitTxt)
-print("sortedTxt:", sortedTxt)
+#print("sortedTxt:", sortedTxt)
+#for loop to create slimmer list of words
+for word in sortedTxt:
+    if word in finalLst : continue
+    finalLst.append(word)
 
-for word in splitTxt:
-    lst.append(line.split())
-    print(line.rstrip())
+print(finalLst)
+#print("sorted count:", len(sortedTxt))
+#print("final count:", len(finalLst))
+
     
-# print("lst", lst)
