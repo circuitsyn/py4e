@@ -6,6 +6,12 @@
 #Starter code
 fname = input("Enter file name: ")
 fh = open(fname)
-lst = list()
-for line in fh:
+splitTxt = list()
+splitTxt = fh.read().split()
+print("splitTxt:", splitTxt)
+
+for word in splitTxt:
+    lst.append(line.split())
     print(line.rstrip())
+    
+# print("lst", lst)
