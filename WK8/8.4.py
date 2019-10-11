@@ -7,8 +7,12 @@
 fname = input("Enter file name: ")
 fh = open(fname)
 splitTxt = list()
+#separate words and store in splitTxt
 splitTxt = fh.read().split()
 print("splitTxt:", splitTxt)
+#Sort text
+sortedTxt = sorted(splitTxt)
+print("sortedTxt:", sortedTxt)
 
 for word in splitTxt:
     lst.append(line.split())
