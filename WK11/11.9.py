@@ -15,7 +15,7 @@ for line in fh:
     found = (re.findall('[0-9]+', line))
     #print("found: ", found)
     if len(found) < 1 : continue
-    totalItems.append(str(found[0]))
+    totalItems.append(int(str(found[0])))
 #totalItems = list(map(int, totalItems))
 #summedData = sum(totalItems)
 #average = summedData / len(totalItems)
