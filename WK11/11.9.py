@@ -13,10 +13,16 @@ fh = open(fname)
 for line in fh:
     line = line.rstrip()
     found = (re.findall('[0-9]+', line))
-    print("found: ", found)
+    #print("found: ", found)
     if len(found) < 1 : continue
-    totalItems.append(found)
-    
+    totalItems.append(str(found[0]))
+#totalItems = list(map(int, totalItems))
+#summedData = sum(totalItems)
+#average = summedData / len(totalItems)
     
 
-print(totalItems)
+print("total items: ", totalItems)
+print("--------------------------------------")
+#print("summed: ", summedData)
+print("--------------------------------------")
+#print("avg: ", average)
