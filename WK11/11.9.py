@@ -24,8 +24,8 @@ summedData = sum(totalItems)
 average = summedData / len(totalItems)
     
 
-print("total items: ", totalItems)
-print("--------------------------------------")
-print("summed: ", summedData)
-print("--------------------------------------")
-print("avg: ", average)
+# print("total items: ", totalItems)
+# print("--------------------------------------")
+print(summedData)
+# print("--------------------------------------")
+# print("avg: ", average)
