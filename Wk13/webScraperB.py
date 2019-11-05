@@ -21,15 +21,10 @@ def openUrl(url) :
 
     # Retrieve all of the anchor tags
     tags = soup('a')
-    # print('TAGs first:', tags)
 
     for tag in range(0, position):
-        print("Tag--: ", tags[tag])
         current = tags[tag]
         print(current.get('href', None))
-        # print("Tag--: ", tag[tag].get('href', None))
-
-    # scanData(tags)
     return tags
 
 # def scanData(tags) :
@@ -56,11 +51,9 @@ def openUrl(url) :
 #     print("tags printed spec", tags)
 
 url = input('Enter - ')
-howMany = int(input('How many times? '))
+howMany = int(input('Count? '))
 position = int(input('Position? '))
 
 openUrl(url)
-# print("tags", tags)
-# print('TAGs ouside:', tags)
 
             
