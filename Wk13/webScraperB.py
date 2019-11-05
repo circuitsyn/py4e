@@ -1,7 +1,3 @@
-# To run this, download the BeautifulSoup zip file
-# http://www.py4e.com/code3/bs4.zip
-# and unzip it in the same directory as this file
-
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import ssl
@@ -9,7 +5,7 @@ import ssl
 tags = list()
 # count = 0
 # completed = 0
-# status = 0
+status = 0
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()
@@ -19,17 +15,17 @@ ctx.verify_mode = ssl.CERT_NONE
 def openUrl(url) :
     html = urlopen(url, context=ctx).read()
     soup = BeautifulSoup(html, "html.parser")
-
+    global status
     # Retrieve all of the anchor tags
     tags = soup('a')
     print("count before", count)
-    print("status before", status)
+    # print("status before", status)
 
     for tag in range(0, position):
         current = tags[tag]
         latestURL = current.get('href', None)
         print(current.get('href', None))
-    status = status + 1
+    status += + 1
     print("count", count)
     print("status", status)
 
