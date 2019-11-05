@@ -25,7 +25,8 @@ if (len(url) < 1) :
 uh = urllib.request.urlopen(url, context=ctx)
 data = uh.read()
 
-print("Data:\n", data)
+# Test code output
+print("Data:", data.decode())
 
 # while True:
 #     address = input('Enter location: ')
