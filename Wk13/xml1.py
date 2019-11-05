@@ -18,6 +18,8 @@ ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
+total = 0
+
 url = input('Enter - ')
 if (len(url) < 1) :
     print("Check your URL!") 
@@ -26,8 +28,17 @@ uh = urllib.request.urlopen(url, context=ctx)
 data = uh.read()
 
 # Test code output
-print("Data:", data.decode())
+# print("Data:", data.decode())
+# store tree xml data in tree
+tree = ET.fromstring(data)
+# pull count data from xml
+counts = tree.findall('.//count')
 
+# for count in counts :
+#     print("count:", count)
+#     total = total + int(count.txt)
+# print("total", total)
+print("counts", counts)
 # while True:
 #     address = input('Enter location: ')
 #     if len(address) < 1: break
