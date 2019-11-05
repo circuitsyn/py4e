@@ -7,8 +7,9 @@ from bs4 import BeautifulSoup
 import ssl
 
 tags = list()
-count = 0
-completed = 0
+# count = 0
+# completed = 0
+# status = 0
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()
@@ -21,11 +22,22 @@ def openUrl(url) :
 
     # Retrieve all of the anchor tags
     tags = soup('a')
+    print("count before", count)
+    print("status before", status)
 
     for tag in range(0, position):
         current = tags[tag]
+        latestURL = current.get('href', None)
         print(current.get('href', None))
-    return tags
+    status = status + 1
+    print("count", count)
+    print("status", status)
+
+    while(status < count) :
+        openUrl(latestURL)
+        print("count inside", count)
+        print("status inside", status)
+    return latestURL
 
 # def scanData(tags) :
 #     print("in scanndata")
@@ -51,7 +63,7 @@ def openUrl(url) :
 #     print("tags printed spec", tags)
 
 url = input('Enter - ')
-howMany = int(input('Count? '))
+count = int(input('Count? '))
 position = int(input('Position? '))
 
 openUrl(url)
