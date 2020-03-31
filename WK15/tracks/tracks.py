@@ -15,6 +15,11 @@ CREATE TABLE Artist (
     name    TEXT UNIQUE
 );
 
+CREATE TABLE Genre (
+    id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+    name    TEXT UNIQUE
+);
+
 CREATE TABLE Album (
     id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
     artist_id  INTEGER,
@@ -26,6 +31,7 @@ CREATE TABLE Track (
         AUTOINCREMENT UNIQUE,
     title TEXT  UNIQUE,
     album_id  INTEGER,
+    genre_id  INTEGER,
     len INTEGER, rating INTEGER, count INTEGER
 );
 ''')
